@@ -15,4 +15,4 @@
 
 
 ### **Cсылки**
-[Открыть сайт в браузере](https://helenakai.github.io/)
+[Открыть сайт в браузере](https://helenakai.github.io/mesto-react/)
