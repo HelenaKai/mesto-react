@@ -6,9 +6,9 @@ import api from "../utils/Api.js";
 function Main(props) {
   const { onEditAvatar, onEditProfile, onAddPlace, onCardClick } = props;
 
-  const [userName, setUserName] = useState("");
-  const [userDescription, setUserDescription] = useState("");
-  const [userAvatar, setUserAvatar] = useState([]);
+  const [userName, setUserName] = useState('');
+  const [userDescription, setUserDescription] = useState('');
+  const [userAvatar, setUserAvatar] = useState('');
 
   //Переменная состояния для карточек
   const [cards, setCards] = useState([]);
@@ -64,7 +64,11 @@ function Main(props) {
         <ul className="cards__list">
           {cards.map((card) => {
             return (
-              <Card key={card._id} card={card} onCardClick={onCardClick}></Card>
+              <Card 
+                key={card._id} 
+                card={card} 
+                onCardClick={onCardClick}
+              ></Card>
             );
           })}
         </ul>

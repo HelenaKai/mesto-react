@@ -1,10 +1,10 @@
 import PopupWithForm from "./PopupWithForm";
 
-function EditProfile(props) {
+function EditProfile({ isOpen, onClose }) {
   return (
     <PopupWithForm
-      isOpen={props.isOpen}
-      onClose={props.onClose}
+      isOpen={isOpen}
+      onClose={onClose}
       name="profile"
       buttonText="Сохранить"
       title="Редактировать профиль"
