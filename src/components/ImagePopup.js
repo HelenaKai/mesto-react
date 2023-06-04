@@ -11,7 +11,7 @@ return (
         ></button>
         <img className="popup__img" 
             src={card.link}
-            alt={card.name} 
+            alt={card.name}
         />
         <h2 className="popup__title-img">{card.name}</h2>
       </div>

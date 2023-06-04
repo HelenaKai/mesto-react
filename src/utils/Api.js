@@ -17,13 +17,13 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  changeUserInfo({ name, job }) {
+  changeUserInfo(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        about: job,
+        name: data.name,
+        about: data.description,
       }),
     }).then(this._checkResponse);
   }
@@ -44,34 +44,25 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  addCard({ title, link }) {
+  addCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
-      body: JSON.stringify({
-        name: title,
-        link: link,
-      }),
+      body: JSON.stringify({ name: name, link: link }),
     }).then(this._checkResponse);
   }
 
-  deleteCard(id) {
-    return fetch(`${this._baseUrl}/cards/${id}`, {
+  deleteCard(card) {
+    return fetch(`${this._baseUrl}/cards/${card}`, {
       method: "DELETE",
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
-  addLike(id) {
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-      method: "PUT",
-      headers: this._headers,
-    }).then(this._checkResponse);
-  }
-
-  deleteLike(id) {
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-      method: "DELETE",
+  // like/dislike
+  changeLikeCardStatus(cardId, isLiked) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: `${!isLiked ? "DELETE" : "PUT"}`,
       headers: this._headers,
     }).then(this._checkResponse);
   }
